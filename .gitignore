@@ -37,3 +37,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+src/moli.api/bin
+src/moli.api/obj
