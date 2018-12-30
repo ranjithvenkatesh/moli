@@ -14,6 +14,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using moli.api.Extensions;
 using moli.api.Models;
+using moli.api.Models.DataManager;
+using moli.api.Models.Repository;
 
 namespace moli.api
 {
@@ -34,7 +36,9 @@ namespace moli.api
       services.ConfigureIISIntegration();
 
       services.AddDbContext<UserContext>(opts => opts.UseSqlite(Configuration["ConnectionString:MoliDB"]));
-      
+
+      services.AddScoped<IDataRepository<User>, UserManager>();
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
 
