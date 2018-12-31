@@ -35,7 +35,7 @@ namespace moli.api
 
       services.ConfigureIISIntegration();
 
-      services.AddDbContext<UserContext>(opts => opts.UseSqlite(Configuration["ConnectionString:MoliDB"]));
+      services.AddDbContext<MoliContext>(opts => opts.UseSqlite(Configuration["ConnectionString:MoliDB"]));
 
       services.AddScoped<IDataRepository<User>, UserManager>();
 

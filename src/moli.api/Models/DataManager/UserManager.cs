@@ -6,9 +6,9 @@ namespace moli.api.Models.DataManager
 {
   public class UserManager : IDataRepository<User>
   {
-    readonly UserContext _userContext;
+    readonly MoliContext _userContext;
 
-    public UserManager(UserContext context)
+    public UserManager(MoliContext context)
     {
       _userContext = context;
     }

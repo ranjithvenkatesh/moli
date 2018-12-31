@@ -7,7 +7,7 @@ using moli.api.Models;
 
 namespace moli.api.Migrations
 {
-    [DbContext(typeof(UserContext))]
+    [DbContext(typeof(MoliContext))]
     [Migration("20181229153757_moli.api.Models.UserContext")]
     partial class moliapiModelsUserContext
     {
