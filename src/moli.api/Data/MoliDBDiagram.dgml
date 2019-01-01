@@ -2,14 +2,81 @@
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
     <Node Id="Database" Label="Moli.db" Category="Database" Group="Expanded" />
+    <Node Id="Answers" Label="Answers" Category="Table" Group="Collapsed" />
+    <Node Id="Answers_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Answers_Text" Label="Text" Category="Field" Description="text" />
+    <Node Id="Answers_QuestionId" Label="QuestionId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Audios" Label="Audios" Category="Table" Group="Collapsed" />
+    <Node Id="Audios_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Audios_Path" Label="Path" Category="Field" Description="text" />
+    <Node Id="Images" Label="Images" Category="Table" Group="Collapsed" />
+    <Node Id="Images_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Images_Path" Label="Path" Category="Field" Description="text" />
+    <Node Id="Items" Label="Items" Category="Table" Group="Collapsed" />
+    <Node Id="Items_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Items_Text" Label="Text" Category="Field" Description="text" />
+    <Node Id="Items_AudioId" Label="AudioId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Items_ImageId" Label="ImageId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Items_LessonId" Label="LessonId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Lessons" Label="Lessons" Category="Table" Group="Collapsed" />
+    <Node Id="Lessons_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Lessons_Name" Label="Name" Category="Field" Description="text" />
+    <Node Id="Lessons_UserId" Label="UserId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Questions" Label="Questions" Category="Table" Group="Collapsed" />
+    <Node Id="Questions_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Questions_Text" Label="Text" Category="Field" Description="text" />
+    <Node Id="Questions_AnswerId" Label="AnswerId" Category="Field" Description="bigint" />
+    <Node Id="Questions_TestId" Label="TestId" Category="Field Foreign" Description="bigint" />
+    <Node Id="Tests" Label="Tests" Category="Table" Group="Collapsed" />
+    <Node Id="Tests_Id" Label="Id" Category="Field Primary" Description="bigint" />
+    <Node Id="Tests_Name" Label="Name" Category="Field" Description="text" />
+    <Node Id="Tests_UserId" Label="UserId" Category="Field Foreign" Description="bigint" />
     <Node Id="Users" Label="Users" Category="Table" Group="Collapsed" />
     <Node Id="Users_Id" Label="Id" Category="Field Primary" Description="bigint" />
-    <Node Id="Users_Email" Label="Email" Category="Field Optional" Description="text" />
+    <Node Id="Users_Email" Label="Email" Category="Field" Description="text" />
+    <Node Id="Users_Name" Label="Name" Category="Field" Description="text" />
   </Nodes>
   <Links>
+    <Link Source="Database" Target="Answers" Category="Contains" />
+    <Link Source="Answers" Target="Answers_Id" Category="Contains" />
+    <Link Source="Answers" Target="Answers_Text" Category="Contains" />
+    <Link Source="Answers" Target="Answers_QuestionId" Category="Contains" />
+    <Link Source="Answers_QuestionId" Target="Questions_Id" Label="FK_Answers_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Audios" Category="Contains" />
+    <Link Source="Audios" Target="Audios_Id" Category="Contains" />
+    <Link Source="Audios" Target="Audios_Path" Category="Contains" />
+    <Link Source="Database" Target="Images" Category="Contains" />
+    <Link Source="Images" Target="Images_Id" Category="Contains" />
+    <Link Source="Images" Target="Images_Path" Category="Contains" />
+    <Link Source="Database" Target="Items" Category="Contains" />
+    <Link Source="Items" Target="Items_Id" Category="Contains" />
+    <Link Source="Items" Target="Items_Text" Category="Contains" />
+    <Link Source="Items" Target="Items_AudioId" Category="Contains" />
+    <Link Source="Items" Target="Items_ImageId" Category="Contains" />
+    <Link Source="Items" Target="Items_LessonId" Category="Contains" />
+    <Link Source="Items_LessonId" Target="Lessons_Id" Label="FK_Items_0_0" Category="Foreign Key" />
+    <Link Source="Items_ImageId" Target="Images_Id" Label="FK_Items_1_0" Category="Foreign Key" />
+    <Link Source="Items_AudioId" Target="Audios_Id" Label="FK_Items_2_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Lessons" Category="Contains" />
+    <Link Source="Lessons" Target="Lessons_Id" Category="Contains" />
+    <Link Source="Lessons" Target="Lessons_Name" Category="Contains" />
+    <Link Source="Lessons" Target="Lessons_UserId" Category="Contains" />
+    <Link Source="Lessons_UserId" Target="Users_Id" Label="FK_Lessons_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Questions" Category="Contains" />
+    <Link Source="Questions" Target="Questions_Id" Category="Contains" />
+    <Link Source="Questions" Target="Questions_Text" Category="Contains" />
+    <Link Source="Questions" Target="Questions_AnswerId" Category="Contains" />
+    <Link Source="Questions" Target="Questions_TestId" Category="Contains" />
+    <Link Source="Questions_TestId" Target="Tests_Id" Label="FK_Questions_0_0" Category="Foreign Key" />
+    <Link Source="Database" Target="Tests" Category="Contains" />
+    <Link Source="Tests" Target="Tests_Id" Category="Contains" />
+    <Link Source="Tests" Target="Tests_Name" Category="Contains" />
+    <Link Source="Tests" Target="Tests_UserId" Category="Contains" />
+    <Link Source="Tests_UserId" Target="Users_Id" Label="FK_Tests_0_0" Category="Foreign Key" />
     <Link Source="Database" Target="Users" Category="Contains" />
     <Link Source="Users" Target="Users_Id" Category="Contains" />
     <Link Source="Users" Target="Users_Email" Category="Contains" />
+    <Link Source="Users" Target="Users_Name" Category="Contains" />
   </Links>
   <Styles>
     <Style TargetType="Node" GroupLabel="Table" ValueLabel="True">

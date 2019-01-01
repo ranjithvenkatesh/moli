@@ -34,6 +34,13 @@
     <h1>Moli.db Database Schema</h1>
     <div id="toc">
       <ul>
+        <li class="table"><a href="#Answers">Answers</a></li>
+        <li class="table"><a href="#Audios">Audios</a></li>
+        <li class="table"><a href="#Images">Images</a></li>
+        <li class="table"><a href="#Items">Items</a></li>
+        <li class="table"><a href="#Lessons">Lessons</a></li>
+        <li class="table"><a href="#Questions">Questions</a></li>
+        <li class="table"><a href="#Tests">Tests</a></li>
         <li class="table"><a href="#Users">Users</a></li>
       </ul>
     </div>
@@ -59,11 +66,256 @@
           </tr>
           <tr>
             <td class="type">DatabaseSize</td>
-            <td class="type">20 KB</td>
+            <td class="type">76 KB</td>
           </tr>
           <tr>
             <td class="type">Created</td>
             <td class="type">29-Dec-18 16:55</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Answers"><a href="#toc" class="tocref">⇧</a>Table Answers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Answers">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Text</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>QuestionId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Answers_0_0">⇨ <a href="#Questions">Questions</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Audios"><a href="#toc" class="tocref">⇧</a>Table Audios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Audios">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Path</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Images"><a href="#toc" class="tocref">⇧</a>Table Images</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Images">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Path</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Items"><a href="#toc" class="tocref">⇧</a>Table Items</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Items">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Text</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>AudioId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Items_2_0">⇨ <a href="#Audios">Audios</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>ImageId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Items_1_0">⇨ <a href="#Images">Images</a>.Id</span></td>
+          </tr>
+          <tr>
+            <th>LessonId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Items_0_0">⇨ <a href="#Lessons">Lessons</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Lessons"><a href="#toc" class="tocref">⇧</a>Table Lessons</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Lessons">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>UserId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Lessons_0_0">⇨ <a href="#Users">Users</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Questions"><a href="#toc" class="tocref">⇧</a>Table Questions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Questions">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Text</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>AnswerId</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>TestId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Questions_0_0">⇨ <a href="#Tests">Tests</a>.Id</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table">
+      <h2 id="Tests"><a href="#toc" class="tocref">⇧</a>Table Tests</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30ex">Name</th>
+            <th style="width:20ex">Type</th>
+            <th style="width:4ex">NULL</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><span class="pk" title="PRIMARY KEY sqlite_master_PK_Tests">◆</span>Id</th>
+            <td class="type">bigint</td>
+            <td class="null">☐</td>
+            <td><span class="flag">IDENTITY (1,1)</span></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>UserId</th>
+            <td class="type">bigint</td>
+            <td class="null">☒</td>
+            <td><span class="flag" title="FK_Tests_0_0">⇨ <a href="#Users">Users</a>.Id</span></td>
           </tr>
         </tbody>
       </table>
@@ -89,7 +341,14 @@
           <tr>
             <th>Email</th>
             <td class="type">text</td>
-            <td class="null">☒</td>
+            <td class="null">☐</td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td class="type">text</td>
+            <td class="null">☐</td>
             <td>
             </td>
           </tr>
@@ -98,6 +357,6 @@
     </div>
     <div class="footer">
                     Generated by <a href="http://SqlDbDoc.codeplex.com/">DB&gt;doc</a> and <a href="https://github.com/ErikEJ/SqlCeToolbox">SQLite/SQL Server Compact Toolbox</a> on
-                    December 29, 2018, 16:11:23</div>
+                    January 01, 2019, 16:31:20</div>
   </body>
 </html>
