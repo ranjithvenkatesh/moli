@@ -40,3 +40,5 @@ Thumbs.db
 
 src/moli.api/bin
 src/moli.api/obj
+src/moli.api/Data/Moli.db
+src/.vs/moli.api/v15/.suo
