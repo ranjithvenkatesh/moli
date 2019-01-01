@@ -19,9 +19,9 @@ namespace moli.api.Models.DataManager
       _userContext.SaveChanges();
     }
 
-    public void Delete(User user)
+    public void Delete(long id)
     {
-      _userContext.Users.Remove(user);
+      _userContext.Users.Remove(Get(id));
       _userContext.SaveChanges();
     }
 
@@ -35,10 +35,10 @@ namespace moli.api.Models.DataManager
       return _userContext.Users.ToList();
     }
 
-    public void Update(User user, User entity)
+    public void Update(User existingEntity, User updatedEntity)
     {
-      user.Name = entity.Name;
-      user.Email = entity.Email;
+      existingEntity.Name = updatedEntity.Name;
+      existingEntity.Email = updatedEntity.Email;
       
       _userContext.SaveChanges();
     }

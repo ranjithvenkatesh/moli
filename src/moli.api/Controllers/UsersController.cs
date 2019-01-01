@@ -88,7 +88,7 @@ namespace moli.api.Controllers
           return NotFound("The User record couldn't be found.");
         }
 
-        _dataRepository.Delete(user);
+        _dataRepository.Delete(id);
         return NoContent();
       }
   }
