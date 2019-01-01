@@ -38,8 +38,10 @@ namespace moli.api
       services.AddDbContext<MoliContext>(opts => opts.UseSqlite(Configuration["ConnectionString:MoliDB"]));
 
       services.AddScoped<IDataRepository<User>, UserManager>();
+      services.AddScoped<IDataRepository<Lesson>, LessonManager>();
+      services.AddScoped<IDataRepository<Test>, TestManager>();
 
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
