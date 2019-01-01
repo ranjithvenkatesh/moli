@@ -30,7 +30,7 @@ namespace moli.api.Controllers
         }
 
         // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetUser")]
         public IActionResult Get(long id)
         {
           User user = _dataRepository.Get(id);
@@ -54,8 +54,8 @@ namespace moli.api.Controllers
 
         _dataRepository.Add(user);
         return CreatedAtRoute(
-              "Get",
-              new { Id = user.Id },
+              "GetUser",
+              new { user.Id },
               user);
       }
 
